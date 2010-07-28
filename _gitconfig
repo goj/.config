@@ -1,0 +1,20 @@
+[user]
+	name = Krzysztof Goj
+	email = krzysztof.goj@erlang-solutions.com
+[diff]
+    color = true
+[alias]
+    # hg/svn habits
+	st = status
+	ci = commit
+	co = checkout
+	br = branch
+
+    # diff magic
+	staged = diff --cached
+	unstaged = diff
+
+    # commit magic
+	civ = commit -v
+	cia = commit -av
+    fbi = commit -a --amend -C HEAD

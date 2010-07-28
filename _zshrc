@@ -1,0 +1,152 @@
+set EXTENDED_GLOB
+set BARE_GLOB_QUAL
+
+# reload .zshrc
+src_zshrc() { source ~/.zshrc }
+
+# CSH compatibility (for scripts)
+
+setenv() { export $1=$2; }
+
+if [[ $OSTYPE = 'linux'* ]]; then
+    eval `dircolors`
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+elif [[ $OSTYPE = 'solaris'* ]]; then
+    eval `gdircolors`
+    alias ls='gls --color=auto'
+    alias grep='ggrep --color=auto'
+    alias make='gmake'
+    alias find='gfind'
+fi
+
+# useful aliases for parent directories
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+
+# logical parent directory
+alias -g ..l='$(dirname `pwd`)'
+
+# rlwrap sftp
+if [[ `which rlwrap` != 'rlwrap not found' ]]; then
+    alias sftp='rlwrap sftp'
+fi
+
+# completion
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' menu select=0
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*:processes' command 'ps xw -o pid,tty,time,args'
+zstyle :compinstall filename '$HOME/.zshrc'
+
+# ^X^F for complete-file
+zle -C complete-file complete-word _generic
+zstyle ':completion:complete-file::::' completer _files
+bindkey "^Xf" complete-file
+bindkey "^X^F" complete-file
+
+autoload -Uz compinit
+compinit
+
+# set some nice options
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+setopt incappendhistory extendedglob notify
+unsetopt autocd beep nullglob nomatch chaselinks chasedots
+
+# Vim keybindings + missing keybindings
+set -o vi
+bindkey -v
+bindkey "^[[A" up-line-or-history
+bindkey "^[[B" down-line-or-history
+bindkey "^P" up-line-or-history
+bindkey "^N" down-line-or-history
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^[[1~" beginning-of-line
+bindkey "^[OH" beginning-of-line
+bindkey "^[[4~" end-of-line
+bindkey "^[OF" end-of-line
+bindkey "^[[3~" delete-char
+bindkey "^R" history-incremental-search-backward
+bindkey "^H" backward-delete-char
+bindkey "^?" backward-delete-char
+bindkey "^F" kill-word
+bindkey "^[[6~" end-of-history
+bindkey "^[[5~" beginning-of-history
+bindkey "^[[1;5D" vi-backward-word
+bindkey "^[[1;5C" vi-forward-word
+
+autoload colors zsh/terminfo
+if [[ "$terminfo[colors]" -ge 8 ]] || [[ $OSTYPE = 'solaris'* ]]; then
+    colors
+fi
+
+function title() {
+    # escape '%' chars in $1, make nonprintables visible
+    a=${(V)1//\%/\%\%}
+
+    # Truncate command, and join lines.
+    a=$(print -Pn "%40>...>$a" | tr -d "\n")
+
+    case $TERM in
+        screen)
+        print -Pn "\ek$a:$3\e\\"      # screen title (in ^A")
+        ;;
+        xterm*|rxvt)
+        print -Pn "\e]2;$2 | $a:$3\a" # plain xterm title
+        ;;
+    esac
+}
+
+# precmd is called just before the prompt is printed
+function precmd() {
+  title "zsh" "$USER@%m" "%55<...<%~"
+}
+
+# preexec is called just before any command line is executed
+function preexec() {
+  title "$1" "$USER@%m" "%35<...<%~"
+}
+
+# use gvim on X11, vim on terminal
+if [[ $DISPLAY == '' ]]; then
+    export EDITOR="vim"
+    alias gvim=vim
+else
+    alias xclipboard='xclip -selection clipboard'
+    export EDITOR="gvim -f"
+fi
+
+# make prompt green on local machines, yellow when working via SSH
+if [[ $SSH_CONNECTION == '' ]]; then
+    PS1="%{$terminfo[bold]$fg[green]%}%n@%m %{$fg[blue]%}%. %{$fg[yellow]%}%#%{$terminfo[sgr0]%} "
+else
+    PS1="%{$terminfo[bold]$fg[yellow]%}%n@%m %{$fg[blue]%}%. %{$fg[yellow]%}%#%{$terminfo[sgr0]%} "
+fi
+RPS1="%(?.%{$fg[grey]%}%/.) %(?.%{$fg[yellow]%}#%!.%{$terminfo[bold]$fg[red]%}%?) %{$terminfo[bold]$fg[grey]%}%T%{$terminfo[sgr0]%}"
+PS2="%{$terminfo[bold]$fg[blue]%}%_ %{$fg[yellow]%}>%{$terminfo[sgr0]%} "
+
+# mcd - *m*kdir + *cd*
+mcd() {mkdir -p $1 && cd $1;}
+
+# nop function
+nop() { return 0; }
+
+export PATH=$HOME/bin:$PATH
+limit coredumpsize unlimited
+
+# .pythonrc
+if [[ -f ~/.pythonrc.py ]]; then
+    export PYTHONSTARTUP=~/.pythonrc.py
+fi
+
+# care of host-specific stuff
+if [[ -f ~/.zshrc_host_specific ]]; then
+    source ~/.zshrc_host_specific
+fi
