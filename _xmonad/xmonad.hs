@@ -36,6 +36,7 @@ main = xmonad $ gnomeConfig
         , ("M-S-l",    spawn "gnome-screensaver-command -l")
         , ("M-r",      spawn "chromium-browser --new-window")
         , ("M-p",      spawn "gnome-do")
+        , ("M-v",      spawn "gvim")
         , ("M-S-x",    spawn "xkill")
         , ("M-u",      focusUrgent)
         , ("M1-M-S-l", spawn "gnome-session-save --gui --kill")
