@@ -33,7 +33,7 @@ set foldlevel=100
 
 command! TrailingWS %s/\s\+$//
 
-command! VimGrepMe execute "vimgrep /" . @/ . "/ **/*<args>"
+command! -nargs=? VimGrepMe execute "vimgrep /" . @/ . "/ **/*<args>"
 
 set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
 set guioptions=bgrL
