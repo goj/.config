@@ -1,8 +1,11 @@
 [user]
 	name = Krzysztof Goj
 	email = krzysztof.goj@erlang-solutions.com
+
 [diff]
     color = true
+    renames = true
+
 [alias]
     # hg/svn habits
 	st = status
@@ -18,3 +21,6 @@
 	civ = commit -v
 	cia = commit -av
     fbi = commit -a --amend -C HEAD
+
+    # other magic
+    ri = rebase --interactive
