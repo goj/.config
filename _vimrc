@@ -218,12 +218,18 @@ set keywordprg=/home/goj/bin/gterman
 let g:ropevim_vim_completion = 1
 let g:ropevim_autoimport_modules = ['os', 'sys', 'math']
 
-" trailing whitespace (stolen from Kamil Dworakowski)
-highlight ExtraWhitespace guibg=#300000
+" trailing whitespace stolen from Kamil Dworakowski
+highlight BadWhitespace guibg=#300000
 au ColorScheme * highlight ExtraWhitespace guibg=#300000
 au BufEnter * match ExtraWhitespace /\s\+$/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-au InsertLeave * match ExtraWhiteSpace /\s\+$/
+au InsertLeave * match ExtraWhitespace /\s\+$/
+au BufEnter * match MixTabsAndSpaces /^[ ]\+\t\+/
+au BufEnter * match MixTabsAndSpaces /^\t\+[ ]\+/
+au filetype erlang,python match BadTabIndentation /^[ ]*\t\+/
+highlight link ExtraWhitespace BadWhitespace
+highlight link BadTabIndentation BadWhitespace
+highlight link MixTabsAndSpaces BadWhitespace
 
 if executable('gotags')
     autocmd BufWrite *.go execute ":silent !gotags **/*.go > tags"
