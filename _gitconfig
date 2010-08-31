@@ -12,6 +12,8 @@
 	ci = commit
 	co = checkout
 	br = branch
+    cat = show
+    serve = daemon --reuseaddr --base-path=. --export-all --verbose
 
     # diff magic
 	staged = diff --cached
