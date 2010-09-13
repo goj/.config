@@ -26,3 +26,8 @@
 
     # other magic
     ri = rebase --interactive
+
+# un-retard git pull :>
+[branch "master"]
+        remote = origin
+        merge = refs/heads/master
