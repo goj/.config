@@ -3,31 +3,31 @@
 	email = krzysztof.goj@erlang-solutions.com
 
 [diff]
-    color = true
-    renames = true
+	color = true
+	renames = true
 
 [alias]
-    # hg/svn habits
+	# hg/svn habits
 	st = status
 	ci = commit
 	co = checkout
 	br = branch
-    cat = show
-    serve = daemon --reuseaddr --base-path=. --export-all --verbose
+	cat = show
+	serve = daemon --reuseaddr --base-path=. --export-all --verbose
 
-    # diff magic
+	# diff magic
 	staged = diff --cached
 	unstaged = diff
 
-    # commit magic
+	# commit magic
 	civ = commit -v
 	cia = commit -av
-    fbi = commit -a --amend -C HEAD
+	fbi = commit -a --amend -C HEAD
 
-    # other magic
-    ri = rebase --interactive
+	# other magic
+	ri = rebase --interactive
 
 # un-retard git pull :>
 [branch "master"]
-        remote = origin
-        merge = refs/heads/master
+	remote = origin
+	merge = refs/heads/master

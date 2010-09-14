@@ -166,6 +166,7 @@ nnoremap <Leader>eX dd:PyEvalReprLn<CR>P
 nnoremap <Leader>ee ddP:PyEvalStrLn<CR>p
 nnoremap <Leader>eE ddP:PyEvalReprLn<CR>p
 
+autocmd FileType gitconfig     set noexpandtab
 autocmd FileType tags,makefile set noexpandtab
 autocmd FileType tags,makefile set softtabstop=8
 autocmd FileType tags,makefile set shiftwidth=8
