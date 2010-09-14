@@ -189,6 +189,7 @@ fun! TagsAndStuff()
     return ''
 endfun
 
+nmap <F5> :make<CR>
 nmap <F12> :call TagsAndStuff()<CR><CR>
 imap <F12> <C-r>=TagsAndStuff()<CR><CR>
 
@@ -228,6 +229,7 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 au BufEnter * match MixTabsAndSpaces /^[ ]\+\t\+/
 au BufEnter * match MixTabsAndSpaces /^\t\+[ ]\+/
 au filetype erlang,python match BadTabIndentation /^[ ]*\t\+/
+au filetype erlang inoremap <C-z> <<>><Left><Left>
 highlight link ExtraWhitespace BadWhitespace
 highlight link BadTabIndentation BadWhitespace
 highlight link MixTabsAndSpaces BadWhitespace
