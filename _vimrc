@@ -234,6 +234,9 @@ highlight link ExtraWhitespace BadWhitespace
 highlight link BadTabIndentation BadWhitespace
 highlight link MixTabsAndSpaces BadWhitespace
 
+" fix surround.vim stupidity
+imap <C-s>\ \\<Left>
+
 if executable('gotags')
     autocmd BufWrite *.go execute ":silent !gotags **/*.go > tags"
 endif
