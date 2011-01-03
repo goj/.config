@@ -172,6 +172,7 @@ autocmd FileType tags,makefile set softtabstop=8
 autocmd FileType tags,makefile set shiftwidth=8
 
 autocmd BufRead,BufNewFile *.jinja set filetype=htmldjango
+autocmd BufRead,BufNewFile *.dtl set filetype=htmldjango
 autocmd BufRead,BufNewFile DESIGN set filetype=asciidoc
 
 autocmd FileType html,asciidoc,tex set spell
@@ -230,12 +231,12 @@ au BufEnter * match MixTabsAndSpaces /^[ ]\+\t\+/
 au BufEnter * match MixTabsAndSpaces /^\t\+[ ]\+/
 au filetype erlang,python match BadTabIndentation /^[ ]*\t\+/
 au filetype erlang inoremap <C-z> <<>><Left><Left>
+au filetype erlang inoremap <S-C-z> <<"">><Left><Left><Left>
+au filetype erlang set tabstop=8
+au filetype erlang set softtabstop=8
 highlight link ExtraWhitespace BadWhitespace
 highlight link BadTabIndentation BadWhitespace
 highlight link MixTabsAndSpaces BadWhitespace
-
-" fix surround.vim stupidity
-imap <C-s>\ \\<Left>
 
 if executable('gotags')
     autocmd BufWrite *.go execute ":silent !gotags **/*.go > tags"
