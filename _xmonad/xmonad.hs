@@ -11,9 +11,9 @@ import XMonad.Hooks.SetWMName
 import XMonad.Config.Gnome
 
 myManageHook = composeAll . concat $
-    [ [ className =? "Pidgin" --> doShift "7:communication" ]
-    , [ className =? "Skype" --> doShift "7:communication"]
-    , [(className =? "Do") --> doIgnore] -- gnome do
+    -- [ [ className =? "Pidgin" --> doShift "7:communication" ]
+    -- , [ className =? "Skype" --> doShift "7:communication"]
+    [ [(className =? "Do") --> doIgnore] -- gnome do
     , [(className =? "Firefox" <&&> resource =? "Dialog") --> doFloat]
     ]
 --xmproc <- spawnPipe "xmobar /usr/bin/xmobar /home/insane/.xmobarrc"
