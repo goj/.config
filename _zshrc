@@ -56,7 +56,7 @@ compinit
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt incappendhistory extendedglob notify
+setopt incappendhistory hist_ignoredups hist_ignorespace extendedglob notify
 unsetopt autocd beep nullglob nomatch chaselinks chasedots
 
 # Vim keybindings + missing keybindings
