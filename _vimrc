@@ -242,4 +242,5 @@ if executable('gotags')
     autocmd BufWrite *.go execute ":silent !gotags **/*.go > tags"
 endif
 
+call pathogen#runtime_append_all_bundles()
 autocmd BufNewFile,BufRead *.coco set filetype=coffee
