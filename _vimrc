@@ -241,3 +241,5 @@ highlight link MixTabsAndSpaces BadWhitespace
 if executable('gotags')
     autocmd BufWrite *.go execute ":silent !gotags **/*.go > tags"
 endif
+
+autocmd BufNewFile,BufRead *.coco set filetype=coffee
