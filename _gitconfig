@@ -3,8 +3,14 @@
 	email = krzysztof.goj@erlang-solutions.com
 
 [diff]
-	color = true
 	renames = true
+
+[color]
+	branch = auto
+	diff = auto
+	grep = auto
+	interactive = auto
+	status = auto
 
 [alias]
 	# hg/svn habits
