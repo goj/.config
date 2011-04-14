@@ -1,4 +1,5 @@
 let mapleader='\'
+lang en_GB.UTF-8
 
 set nocompatible
 filetype plugin on
