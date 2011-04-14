@@ -201,8 +201,6 @@ imap <F12> <C-r>=TagsAndStuff()<CR><CR>
 let g:pysmell_matcher='camel-case-sensitive'
 autocmd FileType python setlocal omnifunc=pysmell#Complete
 
-nmap <Leader>t guu:s/\s\+/_/ge<CR>:noh<CR>Idef test_<C-o>A():<CR>
-
 let python_highlight_numbers = 1
 let python_highlight_builtins = 1
 let python_highlight_exceptions = 1
@@ -211,6 +209,7 @@ let python_highlight_space_errors = 1
 nmap <Leader>b :FufBuffer<CR>
 nmap <Leader>f :FufFile<CR>
 nmap <Leader>c :FufQuickfix<CR>
+nmap <Leader>t :FufTag<CR>
 vmap <Leader>g y:Cprint <C-r>"<CR>
 nmap <Leader>g y:Cprint <C-r>=expand('<cword>')<CR><CR>
 nmap <Leader><S-F><S-R> :FufRenewCache<CR>
