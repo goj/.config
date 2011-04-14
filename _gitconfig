@@ -33,7 +33,3 @@
 	ri = rebase --interactive
 	detach = !git checkout `git show-ref HEAD -s`
 
-# un-retard git pull :>
-[branch "master"]
-	remote = origin
-	merge = refs/heads/master
