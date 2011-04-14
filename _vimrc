@@ -34,8 +34,6 @@ set foldlevel=100
 
 command! TrailingWS %s/\s\+$//
 
-command! -nargs=? VimGrepMe execute "vimgrep /" . @/ . "/ **/*<args>"
-
 set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
 set guioptions=grL
 set cursorline
@@ -188,6 +186,10 @@ command! TuneMySettings split ~/.vimrc
 
 iabbr #!E # coding: <C-r>=&encoding<Cr>
 iabbr ##I #ifndef __<C-r>=substitute(expand('%'), '\W', '_', 'g')<CR>__<Esc>BgU$"xy$o#define <C-o>"xp<Cr><Cr><Esc>"xpgccI#endif <C-CR><Esc>kkO
+
+set grepprg=ack-grep
+command! GlobalSearch execute "grep \"" . substitute(@/, '"', '\\"', "g") . "\""
+command! -nargs=? VimGrepSearch execute "vimgrep /" . substitute(@/, '"', '\\"', "g") . "/ **/*<args>"
 
 command! UseRebar set makeprg=./rebar\ compile\ skip_deps=true
 
