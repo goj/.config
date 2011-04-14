@@ -168,9 +168,10 @@ nnoremap <Leader>ee ddP:PyEvalStrLn<CR>p
 nnoremap <Leader>eE ddP:PyEvalReprLn<CR>p
 
 autocmd FileType gitconfig     set noexpandtab
-autocmd FileType tags,makefile set noexpandtab
-autocmd FileType tags,makefile set softtabstop=8
-autocmd FileType tags,makefile set shiftwidth=8
+autocmd FileType tags,automake,makefile set noexpandtab
+autocmd FileType tags,automake,makefile set tabstop=8
+autocmd FileType tags,automake,makefile set softtabstop=8
+autocmd FileType tags,automake,makefile set shiftwidth=8
 
 autocmd BufRead,BufNewFile *.jinja set filetype=htmldjango
 autocmd BufRead,BufNewFile *.dtl set filetype=htmldjango
