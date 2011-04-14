@@ -188,6 +188,8 @@ command! TuneMySettings split ~/.vimrc
 iabbr #!E # coding: <C-r>=&encoding<Cr>
 iabbr ##I #ifndef __<C-r>=substitute(expand('%'), '\W', '_', 'g')<CR>__<Esc>BgU$"xy$o#define <C-o>"xp<Cr><Cr><Esc>"xpgccI#endif <C-CR><Esc>kkO
 
+command! UseRebar set makeprg=./rebar\ compile\ skip_deps=true
+
 fun! TagsAndStuff()
     !./gen_tags &
     FuzzyFinderRemoveCache
