@@ -176,6 +176,8 @@ autocmd FileType tags,automake,makefile set shiftwidth=8
 autocmd BufRead,BufNewFile *.jinja set filetype=htmldjango
 autocmd BufRead,BufNewFile *.dtl set filetype=htmldjango
 autocmd BufRead,BufNewFile DESIGN set filetype=asciidoc
+autocmd BufRead,BufNewFile rebar.config set filetype=erlang
+autocmd BufRead,BufNewFile *.app,*.app.src set filetype=erlang
 
 autocmd FileType html,asciidoc,tex set spell
 
