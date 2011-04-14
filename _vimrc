@@ -37,7 +37,7 @@ command! TrailingWS %s/\s\+$//
 command! -nargs=? VimGrepMe execute "vimgrep /" . @/ . "/ **/*<args>"
 
 set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
-set guioptions=bgrL
+set guioptions=grL
 set cursorline
 set ruler
 set number
