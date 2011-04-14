@@ -183,6 +183,7 @@ autocmd FileType html,asciidoc,tex set spell
 
 map <F1> <Esc>
 map <F2> :source ~/.vimrc<Esc>
+nmap <F3> "zyiw:execute "grep -- \"\\b" . @z . "\\b\""<CR>
 command! TuneMySettings split ~/.vimrc
 
 iabbr #!E # coding: <C-r>=&encoding<Cr>
@@ -197,6 +198,10 @@ fun! TagsAndStuff()
 endfun
 
 nmap <F5> :make<CR>
+nmap <F6> :copen<CR>
+nmap <F7> :cclose<CR>
+nmap <F8> :cp<CR>
+nmap <F9> :cn<CR>
 nmap <F12> :call TagsAndStuff()<CR><CR>
 imap <F12> <C-r>=TagsAndStuff()<CR><CR>
 
