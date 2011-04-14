@@ -245,8 +245,9 @@ au InsertLeave * match ExtraWhitespace /\s\+$/
 au BufEnter * match MixTabsAndSpaces /^[ ]\+\t\+/
 au BufEnter * match MixTabsAndSpaces /^\t\+[ ]\+/
 au filetype erlang,python match BadTabIndentation /^[ ]*\t\+/
-au filetype erlang inoremap <C-z> <<>><Left><Left>
-au filetype erlang inoremap <S-C-z> <<"">><Left><Left><Left>
+au filetype erlang inoremap <buffer> <C-z> <<>><Left><Left>
+au filetype erlang inoremap <buffer> <S-C-z> <<"">><Left><Left><Left>
+au filetype erlang inoremap <buffer> <C-CR> <CR>%<Space>
 au filetype erlang set tabstop=8
 au filetype erlang set softtabstop=8
 highlight link ExtraWhitespace BadWhitespace
