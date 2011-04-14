@@ -207,6 +207,9 @@ nmap <F9> :cn<CR>
 nmap <F12> :call TagsAndStuff()<CR><CR>
 imap <F12> <C-r>=TagsAndStuff()<CR><CR>
 
+nmap <C-S-N> :tn<CR>
+nmap <C-S-P> :tp<CR>
+
 " Python
 
 let g:pysmell_matcher='camel-case-sensitive'
