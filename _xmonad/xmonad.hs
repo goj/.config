@@ -8,24 +8,24 @@ import System.IO
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
-import XMonad.Config.Gnome
+import XMonad.Layout.NoBorders
 
-myManageHook = composeAll . concat $
-    -- [ [ className =? "Pidgin" --> doShift "7:communication" ]
-    -- , [ className =? "Skype" --> doShift "7:communication"]
-    [ [(className =? "Do") --> doIgnore] -- gnome do
-    , [(className =? "Firefox" <&&> resource =? "Dialog") --> doFloat]
-    ]
---xmproc <- spawnPipe "xmobar /usr/bin/xmobar /home/insane/.xmobarrc"
-main = xmonad $ gnomeConfig
-        { borderWidth = 2
+tiled = Tall nmaster delta ratio where
+     nmaster = 1
+     ratio   = 1/2
+     delta   = 3/100
+
+main = xmonad =<< dzen myConfig
+
+myConfig = defaultConfig
+        { borderWidth = 1
         , focusedBorderColor = "red"
-        , workspaces = map show [1..5] ++ ["6:mail", "7:communication", "8", "9"]
-        , manageHook = manageDocks <+> manageHook gnomeConfig <+> myManageHook
-        , layoutHook = avoidStruts $ layoutHook gnomeConfig
-        , startupHook = setWMName "LG3D"
+        , workspaces = map show [1..9]
         , modMask = mod4Mask
-        , terminal = "gnome-terminal"
+        , startupHook = setWMName "LG3D"
+        , layoutHook = avoidStruts (tiled ||| noBorders Full ||| Mirror tiled)
+        , manageHook = manageHook defaultConfig <+> manageDocks
+        , terminal = "sakura"
         }
         `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
@@ -40,11 +40,9 @@ main = xmonad $ gnomeConfig
         ]
         `additionalKeysP`
         [ ("M-S-q",    spawn "xmonad --recompile && xmonad --restart")
-        , ("M-S-l",    spawn "gnome-screensaver-command -l")
-        , ("M-r",      spawn "chromium-browser --new-window")
-        , ("M-p",      spawn "gnome-do")
+        , ("M-r",      spawn "chromium --new-window")
+        , ("M-b",      sendMessage ToggleStruts)
         , ("M-v",      spawn "gvim")
         , ("M-S-x",    spawn "xkill")
         , ("M-u",      focusUrgent)
-        , ("M1-M-S-l", spawn "gnome-session-save --gui --kill")
         ]
