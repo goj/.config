@@ -35,7 +35,7 @@ set foldlevel=100
 command! TrailingWS %s/\s\+$//
 
 set guifont=Bitstream\ Vera\ Sans\ Mono\ 11
-set guioptions=grL
+set guioptions=gR
 set cursorline
 set ruler
 set number
