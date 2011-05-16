@@ -31,5 +31,5 @@
 
 	# other magic
 	ri = rebase --interactive
-	detach = !git checkout `git show-ref HEAD -s`
+	detach = checkout HEAD~0
 
