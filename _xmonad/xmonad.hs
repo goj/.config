@@ -23,7 +23,7 @@ myConfig = defaultConfig
         , workspaces = map show [1..9]
         , modMask = mod4Mask
         , startupHook = setWMName "LG3D"
-        , layoutHook = avoidStruts (tiled ||| noBorders Full ||| Mirror tiled)
+        , layoutHook = avoidStruts (tiled ||| Full ||| Mirror tiled)
         , manageHook = manageHook defaultConfig <+> manageDocks
         , terminal = "sakura"
         }
