@@ -25,6 +25,9 @@ alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 
+# newest download
+alias -g @@NDL='~/downloads/*(.om[1])'
+
 # logical parent directory, to be used like rm `..l`/file
 alias ..l='dirname `pwd`'
 
