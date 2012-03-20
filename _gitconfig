@@ -21,10 +21,6 @@
 	cat = show
 	serve = daemon --reuseaddr --base-path=. --export-all --verbose
 
-	# diff magic
-	staged = diff --cached
-	unstaged = diff
-
 	# commit magic
 	cia = commit -av
 	fbi = commit -a --amend -C HEAD
@@ -32,4 +28,6 @@
 	# other magic
 	ri = rebase --interactive
 	detach = checkout HEAD~0
-
+	whatsup = log ORIG_HEAD.. --stat --no-merges
+	whois = "!sh -c 'git log -i -1 --pretty=\"format:%an <%ae>\n\" --author=\"$1\"' -"
+	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
