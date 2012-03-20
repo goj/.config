@@ -63,6 +63,8 @@ inoremap <c-space> <c-x><c-o>
 vmap <C-s> <Plug>Vsurround
 vmap <C-S> <Plug>VSurround
 nmap <C-s> <Plug>Ysurround
+nnoremap g<C-v> `[v`]l
+nnoremap <C-g><C-v> `[v`]l
 
 nnoremap <Leader>v "+p
 vnoremap <Leader>c "+y
