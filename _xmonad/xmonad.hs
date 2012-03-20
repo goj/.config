@@ -44,6 +44,7 @@ myConfig = ewmh $ defaultConfig
         ]
         `additionalKeysP`
         [ ("M-S-q",    spawn "xmonad --recompile && xmonad --restart")
+        , ("M-p",      spawn "dmenu_run &")
         , ("M-r",      spawn "chromium --new-window")
         , ("M-b",      sendMessage ToggleStruts)
         , ("M-v",      spawn "gvim")
