@@ -278,3 +278,6 @@ autocmd BufNewFile,BufRead *.coco set filetype=coffee
 " snippet file support
 autocmd BufNewFile,BufRead /tmp/snippets set filetype=erlang
 autocmd BufNewFile,BufRead /tmp/snippets nnoremap <buffer> <C-S-C> "+yip
+
+set runtimepath+=~/tools/go/misc/vim
+autocmd BufNewFile,BufRead *.go set filetype=go
