@@ -51,7 +51,6 @@ hi link pythonBuiltin Constant
 
 let html_use_css=1
 let cursor_follows_alphabet=1
-map <F1> <F2>
 
 inoremap <c-b> ()<Left>
 inoremap <c-l> <Right>
@@ -180,9 +179,6 @@ autocmd BufRead,BufNewFile *.app,*.app.src set filetype=erlang
 
 autocmd FileType html,asciidoc,tex set spell
 
-map <F1> <Esc>
-map <F2> :source ~/.vimrc<Esc>
-nmap <F3> "zyiw:execute "grep -- \"\\b" . @z . "\\b\""<CR>
 command! TuneMySettings split ~/.vimrc
 
 iabbr #!E # coding: <C-r>=&encoding<Cr>
@@ -194,19 +190,27 @@ command! -nargs=? VimGrepSearch execute "vimgrep /" . substitute(@/, '"', '\\"',
 
 command! UseRebar set makeprg=./rebar\ compile\ skip_deps=true
 
-fun! TagsAndStuff()
-    !./gen_tags &
-    FuzzyFinderRemoveCache
-    return ''
-endfun
+function! ToggleRelNum()
+    if &number
+        set relativenumber
+    else
+        set number
+    end
+endfunction
+
+
+map <F1> <Esc>
+map <F2> :source ~/.vimrc<Esc>
+nmap <F3> :StarOccur<CR>
+nmap <F4> "zyiw:execute "grep -- \"\\b" . @z . "\\b\""<CR>
+vmap <F4> "zy:execute "grep -- \"" . @z . "\""<CR>
 
 nmap <F5> :make<CR>
-nmap <F6> :copen<CR>
-nmap <F7> :cclose<CR>
-nmap <F8> :cp<CR>
-nmap <F9> :cn<CR>
-nmap <F12> :call TagsAndStuff()<CR><CR>
-imap <F12> <C-r>=TagsAndStuff()<CR><CR>
+nmap <F6> :QFix<CR>
+nmap <F7> :cp<CR>
+nmap <F8> :cn<CR>
+
+nmap <F12> :call ToggleRelNum()<CR>
 
 nmap <C-S-N> :tn<CR>
 nmap <C-S-P> :tp<CR>
