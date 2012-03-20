@@ -152,7 +152,8 @@ def py_eval_reg(encoding, trailer='', mode='eval'):
 EOPYTHON
 
 " split and turn into python-style list
-nnoremap <Leader>l dd:let @@=string(split(substitute(@@, '\n', '', ''), '\s\+')).substitute('!', '!', '\n', '')<CR>P
+nnoremap <Leader>l dd:let @@=string(split(substitute(@@, '\n', '', ''), '\s\+'))."\n"<CR>P==
+nnoremap <Leader>L dd:let @@=substitute(string(split(substitute(@@, '\n', '', ''), '\s\+')), "'", '"', 'g')."\n"<CR>P==
 
 vnoremap <Leader>er x:PyEvalRepr<CR>P
 vnoremap <Leader>es x:PyEvalStr<CR>P
