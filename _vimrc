@@ -216,8 +216,9 @@ nmap <F8> :cn<CR>
 
 nmap <F12> :call ToggleRelNum()<CR>
 
-nmap <C-S-N> :tn<CR>
-nmap <C-S-P> :tp<CR>
+
+nmap <C-N> :tn<CR>
+nmap <C-P> :tp<CR>
 
 " Python
 
