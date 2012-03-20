@@ -176,6 +176,8 @@ autocmd FileType tags,automake,makefile set shiftwidth=8
 autocmd BufRead,BufNewFile *.jinja set filetype=htmldjango
 autocmd BufRead,BufNewFile *.dtl set filetype=htmldjango
 autocmd BufRead,BufNewFile DESIGN set filetype=asciidoc
+autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
+autocmd BufRead,BufNewFile ejabberd.cfg set filetype=erlang
 autocmd BufRead,BufNewFile rebar.config set filetype=erlang
 autocmd BufRead,BufNewFile *.app,*.app.src set filetype=erlang
 
@@ -239,31 +241,40 @@ autocmd filetype tex,latex inoremap <C-a> \item
 let g:haddock_browser="firefox"
 let g:translit_map='planslit'
 let g:translit_toggle_keymap='<C-q>'
-set keywordprg=/home/goj/bin/gterman
 let g:ropevim_vim_completion = 1
 let g:ropevim_autoimport_modules = ['os', 'sys', 'math']
 
 " trailing whitespace stolen from Kamil Dworakowski
 highlight BadWhitespace guibg=#300000
+highlight link ExtraWhitespace BadWhitespace
+highlight link BadTabIndentation BadWhitespace
+highlight link MixTabsAndSpaces BadWhitespace
 au ColorScheme * highlight ExtraWhitespace guibg=#300000
 au BufEnter * match ExtraWhitespace /\s\+$/
 au InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 au InsertLeave * match ExtraWhitespace /\s\+$/
 au BufEnter * match MixTabsAndSpaces /^[ ]\+\t\+/
 au BufEnter * match MixTabsAndSpaces /^\t\+[ ]\+/
+
 au filetype erlang,python match BadTabIndentation /^[ ]*\t\+/
-au filetype erlang inoremap <buffer> <C-z> <<>><Left><Left>
-au filetype erlang inoremap <buffer> <S-C-z> <<"">><Left><Left><Left>
-au filetype erlang inoremap <buffer> <C-CR> <CR>%<Space>
-au filetype erlang set tabstop=8
-au filetype erlang set softtabstop=8
-highlight link ExtraWhitespace BadWhitespace
-highlight link BadTabIndentation BadWhitespace
-highlight link MixTabsAndSpaces BadWhitespace
+au filetype erlang inoremap <buffer> <C-z> <<"">><Left><Left><Left>
+au filetype erlang inoremap <buffer> <C-CR> <CR>%%<Space>
+au filetype erlang set tabstop=4
+au filetype erlang set softtabstop=4
+au filetype erlang set keywordprg=/home/goj/bin/erl-man
+au filetype erlang hi link erlangAtom Normal
+hi link erlangAtom Normal
 
 if executable('gotags')
     autocmd BufWrite *.go execute ":silent !gotags **/*.go > tags"
 endif
+" if executable('ctags')
+"     autocmd BufWrite *.erl,*.hrl execute ":silent !ctags **/*.{erl,hrl} > tags"
+" endif
 
 call pathogen#runtime_append_all_bundles()
 autocmd BufNewFile,BufRead *.coco set filetype=coffee
+
+" snippet file support
+autocmd BufNewFile,BufRead /tmp/snippets set filetype=erlang
+autocmd BufNewFile,BufRead /tmp/snippets nnoremap <buffer> <C-S-C> "+yip
