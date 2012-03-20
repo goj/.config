@@ -17,14 +17,18 @@ tiled = Tall nmaster delta ratio where
 
 main = xmonad =<< dzen myConfig
 
-myConfig = defaultConfig
+myManageHook = composeAll . concat $
+    [ [ stringProperty "WM_WINDOW_ROLE" =? "buddy_list" --> doShift "9" ]
+    ]
+
+myConfig = ewmh $ defaultConfig
         { borderWidth = 1
         , focusedBorderColor = "red"
         , workspaces = map show [1..9]
         , modMask = mod4Mask
         , startupHook = setWMName "LG3D"
         , layoutHook = avoidStruts (tiled ||| Full ||| Mirror tiled)
-        , manageHook = manageHook defaultConfig <+> manageDocks
+        , manageHook = manageHook defaultConfig <+> manageDocks <+> myManageHook
         , terminal = "sakura"
         }
         `additionalKeys`
