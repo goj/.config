@@ -273,7 +273,6 @@ endif
 "     autocmd BufWrite *.erl,*.hrl execute ":silent !ctags **/*.{erl,hrl} > tags"
 " endif
 
-call pathogen#runtime_append_all_bundles()
 autocmd BufNewFile,BufRead *.coco set filetype=coffee
 
 " snippet file support
