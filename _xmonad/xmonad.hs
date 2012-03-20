@@ -47,7 +47,8 @@ myConfig = ewmh $ defaultConfig
         , ("M-p",      spawn "dmenu_run &")
         , ("M-r",      spawn "chromium --new-window")
         , ("M-b",      sendMessage ToggleStruts)
-        , ("M-v",      spawn "gvim")
+        , ("M-v",      spawn "x-run-here gvim")
         , ("M-S-x",    spawn "xkill")
+        , ("M-n",      spawn "x-run-here sakura &")
         , ("M-u",      focusUrgent)
         ]
