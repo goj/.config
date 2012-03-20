@@ -188,7 +188,7 @@ command! TuneMySettings split ~/.vimrc
 iabbr #!E # coding: <C-r>=&encoding<Cr>
 iabbr ##I #ifndef __<C-r>=substitute(expand('%'), '\W', '_', 'g')<CR>__<Esc>BgU$"xy$o#define <C-o>"xp<Cr><Cr><Esc>"xpgccI#endif <C-CR><Esc>kkO
 
-set grepprg=ack-grep
+set grepprg=ack
 command! GlobalSearch execute "grep \"" . substitute(@/, '"', '\\"', "g") . "\""
 command! -nargs=? VimGrepSearch execute "vimgrep /" . substitute(@/, '"', '\\"', "g") . "/ **/*<args>"
 
