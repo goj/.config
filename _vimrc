@@ -231,7 +231,7 @@ let python_highlight_exceptions = 1
 let python_highlight_space_errors = 1
 
 nmap <Leader>b :FufBuffer<CR>
-nmap <Leader>f :FufFile<CR>
+nmap <Leader>f :FufCoverageFile<CR>
 nmap <Leader>c :FufQuickfix<CR>
 nmap <Leader>t :FufTag<CR>
 vmap <Leader>g y:Cprint <C-r>"<CR>
