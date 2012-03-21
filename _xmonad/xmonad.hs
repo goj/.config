@@ -29,7 +29,7 @@ myConfig = ewmh $ defaultConfig
         , startupHook = setWMName "LG3D"
         , layoutHook = avoidStruts (tiled ||| Full ||| Mirror tiled)
         , manageHook = manageHook defaultConfig <+> manageDocks <+> myManageHook
-        , terminal = "sakura"
+        , terminal = "gnome-terminal"
         }
         `additionalKeys`
         [ ((mod4Mask .|. shiftMask, xK_z), spawn "xscreensaver-command -lock")
@@ -48,6 +48,7 @@ myConfig = ewmh $ defaultConfig
         , ("M-r",      spawn "chromium --new-window")
         , ("M-b",      sendMessage ToggleStruts)
         , ("M-v",      spawn "x-run-here gvim")
+        , ("M-g",      spawn "x-run-here gitg")
         , ("M-S-x",    spawn "xkill")
         , ("M-n",      spawn "x-run-here sakura &")
         , ("M-u",      focusUrgent)
