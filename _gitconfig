@@ -1,6 +1,9 @@
 [user]
 	name = Krzysztof Goj
-	email = krzysztof.goj@erlang-solutions.com
+	email = krzysztof.goj@gmail.com
+
+[include]
+    path = ~/.config/git/machine-specific
 
 [push]
 	default = upstream
