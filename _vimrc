@@ -30,6 +30,7 @@ set nowrap
 
 syn sync fromstart
 
+set laststatus=2
 set foldlevel=100
 
 command! TrailingWS %s/\s\+$//
