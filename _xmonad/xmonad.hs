@@ -7,6 +7,7 @@ import XMonad.Util.EZConfig
 import System.IO
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
 import XMonad.Layout.NoBorders
 
@@ -15,7 +16,14 @@ tiled = Tall nmaster delta ratio where
      ratio   = 1/2
      delta   = 3/100
 
-main = xmonad =<< dzen myConfig
+main = xmonad =<< myDzen myConfig
+
+myDzen conf = statusBar ("dzen2 " ++ flags) dzenPP toggleStrutsKey conf
+ where
+    fg      = "'#a8a3f7'" -- n.b quoting
+    bg      = "'#3f3c3d'"
+    flags   = "-e 'onstart=lower' -w 1920 -ta l -fg " ++ fg ++ " -bg " ++ bg
+    toggleStrutsKey XConfig{modMask = modm} = (modm, xK_b)
 
 myManageHook = composeAll . concat $
     [ [ stringProperty "WM_WINDOW_ROLE" =? "buddy_list" --> doShift "9" ]
