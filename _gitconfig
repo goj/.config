@@ -2,6 +2,9 @@
 	name = Krzysztof Goj
 	email = krzysztof.goj@erlang-solutions.com
 
+[push]
+	default = upstream
+
 [diff]
 	renames = true
 
