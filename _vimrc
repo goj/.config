@@ -181,7 +181,10 @@ autocmd BufRead,BufNewFile DESIGN set filetype=asciidoc
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 autocmd BufRead,BufNewFile ejabberd.cfg set filetype=erlang
 autocmd BufRead,BufNewFile rebar.config set filetype=erlang
+autocmd BufRead,BufNewFile sys.config set filetype=erlang
+autocmd BufRead,BufNewFile app.config set filetype=erlang
 autocmd BufRead,BufNewFile *.app,*.app.src set filetype=erlang
+autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 autocmd FileType html,asciidoc,tex set spell
 
