@@ -20,11 +20,6 @@ elif [[ $OSTYPE = 'solaris'* ]]; then
     alias find='gfind'
 fi
 
-# useful aliases for parent directories
-alias -g ...='../..'
-alias -g ....='../../..'
-alias -g .....='../../../..'
-
 # newest download
 alias -g @@NDL='~/downloads/*(.om[1])'
 
