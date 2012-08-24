@@ -10,8 +10,8 @@ set vb t_vb=
 set noerrorbells
 set showcmd
 autocmd GUIEnter * set vb t_vb=
-set backupdir=~/tmp/vim-backup,~/.tmp,/var/tmp/vim,/var/tmp,/tmp,.
-set directory=~/tmp/vim-backup,~/.tmp,/var/tmp/vim,/var/tmp,/tmp,.
+set backupdir=~/tmp/vim-backup,~/.tmp,/var/tmp/vim,/tmp,/var/tmp,.
+set directory=~/tmp/vim-backup,~/.tmp,/var/tmp/vim,/tmp,/var/tmp,.
 
 set backspace=2
 set autoindent
