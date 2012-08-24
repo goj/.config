@@ -218,6 +218,8 @@ nmap <F5> :make<CR>
 nmap <F6> :QFix<CR>
 nmap <F7> :cp<CR>
 nmap <F8> :cn<CR>
+nmap <F9> @@
+nmap <F10> @:
 
 nmap <F12> :call ToggleRelNum()<CR>
 
