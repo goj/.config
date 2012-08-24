@@ -27,6 +27,7 @@ myDzen conf = statusBar ("dzen2 " ++ flags) dzenPP toggleStrutsKey conf
 
 myManageHook = composeAll . concat $
     [ [ stringProperty "WM_WINDOW_ROLE" =? "buddy_list" --> doShift "9" ]
+    , [ className =? "Clipit" --> doCenterFloat ]
     ]
 
 myConfig = ewmh $ defaultConfig
