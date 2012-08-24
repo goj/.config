@@ -145,6 +145,6 @@ if [[ -f ~/.pythonrc.py ]]; then
 fi
 
 # care of host-specific stuff
-if [[ -f ~/.zshrc_host_specific ]]; then
-    source ~/.zshrc_host_specific
+if [[ -f ${XDG_CONFIG_HOME-~/.config}/zsh/host-specific ]]; then
+    source ${XDG_CONFIG_HOME-~/.config}/zsh/host-specific
 fi

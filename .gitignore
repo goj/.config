@@ -1,4 +1,6 @@
-_xmonad/xmonad-x86_64-linux
-_xmonad/xmonad.errors
-_xmonad/xmonad.hi
-_xmonad/xmonad.o
+/LEGACY/xmonad/xmonad-x86_64-linux
+/LEGACY/xmonad/xmonad.errors
+/LEGACY/xmonad/xmonad.hi
+/LEGACY/xmonad/xmonad.o
+/git/host-specific
+/zsh/host-specific

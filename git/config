@@ -3,7 +3,7 @@
 	email = krzysztof.goj@gmail.com
 
 [include]
-    path = ~/.config/git/machine-specific
+    path = ~/.config/git/host-specific
 
 [push]
 	default = upstream

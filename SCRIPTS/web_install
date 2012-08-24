@@ -1,0 +1,4 @@
+git clone --recursive git://github.com/goj/.config.git \
+&& cd ~/.config/SCRIPTS/
+./install.zsh
+echo "config files installed"
