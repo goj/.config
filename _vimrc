@@ -55,6 +55,7 @@ let cursor_follows_alphabet=1
 
 inoremap <c-b> ()<Left>
 inoremap <c-l> <Right>
+inoremap <A--> –
 
 inoremap <s-cr> <C-o>o
 inoremap <s-c-cr> <C-o>O
