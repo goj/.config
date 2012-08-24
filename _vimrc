@@ -265,12 +265,14 @@ au BufEnter * match MixTabsAndSpaces /^[ ]\+\t\+/
 au BufEnter * match MixTabsAndSpaces /^\t\+[ ]\+/
 
 au filetype erlang,python match BadTabIndentation /^[ ]*\t\+/
-au filetype erlang inoremap <buffer> <C-z> <<"">><Left><Left><Left>
+au filetype erlang inoremap <buffer> <C-z> <<>><Left><Left>
 au filetype erlang inoremap <buffer> <C-CR> <CR>%%<Space>
-au filetype erlang set tabstop=4
+au filetype erlang set expandtab
 au filetype erlang set softtabstop=4
+au filetype erlang set tabstop=8 " stupid OTP tab/space mix
 au filetype erlang set keywordprg=/home/goj/bin/erl-man
 au filetype erlang hi link erlangAtom Normal
+au filetype erlang setlocal indentkeys-==),=],=}
 hi link erlangAtom Normal
 
 if executable('gotags')
