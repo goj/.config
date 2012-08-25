@@ -1,6 +1,6 @@
 [rc]
 use_copy=true
-use_primary=false
+use_primary=true
 synchronize=false
 automatic_paste=false
 show_indexes=false
@@ -22,4 +22,4 @@ actions_key=<Ctrl><Alt><Shift>A
 menu_key=<Ctrl><Alt><Shift>M
 search_key=<Ctrl><Alt><Shift>F
 offline_key=<Ctrl><Alt><Shift>O
-offline_mode=true
+offline_mode=false
