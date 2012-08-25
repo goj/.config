@@ -3,6 +3,6 @@ if [[ -d .config ]]; then
     mv -n .config dot-config.bak
 fi
 git clone --recursive git://github.com/goj/.config.git \
-&& cd ~/.config/SCRIPTS/
-./install.zsh
+&& cd ~/.config/
+./SCRIPTS/install.zsh
 echo "config files installed"
