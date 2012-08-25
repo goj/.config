@@ -122,7 +122,7 @@ else
 fi
 
 # use XDG-based vim config
-export VIMINIT="let \$MYVIMRC=\"${XDG_CONFIG_HOME-~/.config}/vim/config\" | source \$MYVIMRC"
+export VIMINIT="let \$MYVIMRC=\"${XDG_CONFIG_HOME-~/.config}/vim/config.vim\" | source \$MYVIMRC"
 
 # make prompt green on local machines, yellow when working via SSH
 if [[ $SSH_CONNECTION == '' ]]; then
