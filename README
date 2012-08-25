@@ -1,1 +1,1 @@
-curl https://raw.github.com/goj/config-files/master/web_install | sh
+curl https://raw.github.com/goj/config-files/master/SCRIPTS/web_install | sh
