@@ -144,7 +144,7 @@ limit coredumpsize unlimited
 
 # .pythonrc
 if [[ -f ~/.pythonrc.py ]]; then
-    export PYTHONSTARTUP=~/.pythonrc.py
+    export PYTHONSTARTUP=${XDG_CONFIG_HOME-~/.config}/python/startup.py
 fi
 
 # care of host-specific stuff
