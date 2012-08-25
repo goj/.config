@@ -18,7 +18,7 @@ font -misc-fixed-medium-r-normal--12-120-75-75-C-70-iso10646-1
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec evilvte
 
 # kill focused window
 bindsym $mod+Shift+C kill
@@ -31,6 +31,9 @@ bindsym $mod+w exec luakit
 
 # start chromium
 bindsym $mod+i exec chromium
+
+# start new terminal
+bindsym $mod+Shift+N exec x-run-here evilvte
 
 # start chromium
 bindsym $mod+Shift+V exec x-run-here gvim
