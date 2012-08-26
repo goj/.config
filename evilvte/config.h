@@ -44,7 +44,7 @@
 // #define DEFAULT_DIRECTORY      g_get_current_dir()
 // #define DEFAULT_TERMINAL_SIZE  80x24
 #define FONT                   "Bitstream Vera Sans Mono 11"
-// #define FONT_ANTI_ALIAS        TRUE
+#define FONT_ANTI_ALIAS        TRUE
 // #define FONT_ENABLE_BOLD_TEXT  TRUE
 // #define MOUSE_CTRL_SATURATION  TRUE  /* Scroll left or right to adjust it  */
 // #define MOUSE_CURSOR_AUTOHIDE  TRUE
@@ -126,9 +126,9 @@
  * See /usr/include/gtk-?.0/gdk/gdkkeysyms.h for GDK_* definitions.           */
 
 #define    HOTKEY                       TRUE
-// #define HOTKEY_COPY                  CTRL(GDK_C)
-// #define HOTKEY_PASTE                 CTRL(GDK_V)
-// #define HOTKEY_SELECT_ALL            CTRL(GDK_S)
+#define HOTKEY_COPY                  CTRL(GDK_C)
+#define HOTKEY_PASTE                 CTRL(GDK_V)
+#define HOTKEY_SELECT_ALL            CTRL(GDK_S)
 // #define HOTKEY_COLOR_BACKGROUND      CTRL(GDK_B)
 // #define HOTKEY_EDIT_ENCODING         CTRL(GDK_U)
 // #define HOTKEY_FONT_BIGGER           CTRL(GDK_KP_Add)
