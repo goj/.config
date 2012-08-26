@@ -26,6 +26,9 @@ bindsym $mod+Shift+C kill
 # start dmenu (a program launcher)
 bindsym $mod+p exec dmenu_run
 
+# start sel-do
+bindsym $mod+Shift+P exec sel-do
+
 # start luakit browser
 bindsym $mod+w exec luakit
 
@@ -35,10 +38,10 @@ bindsym $mod+i exec chromium
 # start new terminal
 bindsym $mod+Shift+N exec x-run-here evilvte
 
-# start chromium
+# start gvim
 bindsym $mod+Shift+V exec x-run-here gvim
 
-# start chromium
+# start gitg
 bindsym $mod+Shift+G exec x-run-here gitg
 
 # change focus
@@ -158,6 +161,9 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+for_window [title="ImageMagick: qr.png"] fullscreen
+for_window [class="Chromium"] border no_title
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
