@@ -26,7 +26,7 @@ bindsym $mod+Shift+C kill
 # start dmenu (a program launcher)
 bindsym $mod+p exec dmenu_run
 
-# start uzbl-browser
+# start luakit browser
 bindsym $mod+w exec luakit
 
 # start chromium
