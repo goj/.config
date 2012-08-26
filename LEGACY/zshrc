@@ -139,7 +139,7 @@ mcd() {mkdir -p $1 && cd $1;}
 # nop function
 nop() { return 0; }
 
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/bin/util:$PATH
 limit coredumpsize unlimited
 
 # .pythonrc
