@@ -12,7 +12,7 @@
                          /*          DELETE_SEQUENCE                          */
 // #define BELL_AUDIBLE           TRUE
 // #define BELL_VISIBLE           TRUE
-// #define BELL_URGENT            TRUE
+#define BELL_URGENT            TRUE
 // #define BUTTON_ORDER_BY_RCFILE TRUE
 // #define CLOSE_DIALOG           TRUE  /* Dialog to confirm close event      */
 // #define CLOSE_SAFELY           TRUE  /* Do not kill running applications   */
@@ -33,7 +33,7 @@
 // #define COMMAND_GEOMETRY       TRUE  /* -g +X+Y option, to assign geometry */
 // #define COMMAND_LOGIN_SHELL    TRUE  /* -ls option, to enable login shell  */
 // #define COMMAND_SET_TITLE      TRUE  /* -T or -title to set program title  */
-// #define COMMAND_SHOW_HELP      TRUE  /* -h option, show help               */
+#define COMMAND_SHOW_HELP      TRUE  /* -h option, show help               */
 #define    COMMAND_SHOW_OPTIONS   TRUE  /* -o option, show build-time options */
 #define    COMMAND_SHOW_VERSION   TRUE  /* -v option, show program version    */
 // #define COMMAND_TAB_NUMBERS    TRUE  /* -[2-9] options, to set tab numbers */
@@ -146,8 +146,8 @@
 // #define HOTKEY_SCROLL_ONE_PAGE_UP    CTRL(GDK_k)
 // #define HOTKEY_SCROLL_ONE_PAGE_DOWN  CTRL(GDK_j)
 #define HOTKEY_SEARCH_STRING         CTRL(GDK_F)
-#define HOTKEY_SEARCH_PREVIOUS       CTRL(GDK_G)
-#define HOTKEY_SEARCH_NEXT           CTRL(GDK_g)
+#define HOTKEY_SEARCH_PREVIOUS       CTRL(GDK_P)
+#define HOTKEY_SEARCH_NEXT           CTRL(GDK_N)
 #define SEARCH_CASE_SENSITIVE FALSE
 // #define    HOTKEY_TAB_ADD               CTRL(GDK_T)
 // #define    HOTKEY_TAB_REMOVE            CTRL(GDK_W)
