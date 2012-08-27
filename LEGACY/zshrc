@@ -31,6 +31,14 @@ if [[ `which rlwrap` != 'rlwrap not found' ]]; then
     alias sftp='rlwrap sftp'
 fi
 
+if [[ `which pstree` != 'pstree not found' ]]; then
+    if [[ `pstree -s $$ | grep -c evilvte` -gt 0 ]]; then
+        function urgency-bell()  {echo  -en "\a"}
+        autoload -U add-zsh-hook
+        add-zsh-hook precmd urgency-bell
+    fi
+fi
+
 # completion
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 
@@ -118,7 +126,7 @@ if [[ $DISPLAY == '' ]]; then
     alias gvim=vim
 else
     alias xclipboard='xclip -selection clipboard'
-    export EDITOR="gvim -f"
+    export EDITOR="/usr/bin/gvim -f"
 fi
 
 # use XDG-based vim config
