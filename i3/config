@@ -29,8 +29,10 @@ bindsym $mod+p exec dmenu_run
 # start sel-do
 bindsym $mod+Shift+P exec sel-do
 
-# start luakit browser
-bindsym $mod+w exec luakit
+# move workspace left and right
+bindsym $mod+w exec move workspace to output left
+bindsym $mod+e exec move workspace to output right
+bindsym $mod+b exec move workspace back_and_forth
 
 # start chromium
 bindsym $mod+i exec chromium
@@ -134,7 +136,9 @@ bindsym $mod+Shift+Q reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+R restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+E exit
+# bindsym $mod+Shift+E exit
+# lock screen
+bindsym $mod+Shift+T exec i3lock -i ~/arch/wallpapers/locked.png
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
