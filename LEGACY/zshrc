@@ -151,7 +151,7 @@ export PATH=$HOME/bin:$HOME/bin/util:$PATH
 limit coredumpsize unlimited
 
 # .pythonrc
-if [[ -f ~/.pythonrc.py ]]; then
+if [[ -f ${XDG_CONFIG_HOME-~/.config}/python/startup.py ]]; then
     export PYTHONSTARTUP=${XDG_CONFIG_HOME-~/.config}/python/startup.py
 fi
 
