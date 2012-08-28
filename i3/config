@@ -30,9 +30,9 @@ bindsym $mod+p exec dmenu_run
 bindsym $mod+Shift+P exec sel-do
 
 # move workspace left and right
-bindsym $mod+w exec move workspace to output left
-bindsym $mod+e exec move workspace to output right
-bindsym $mod+b exec move workspace back_and_forth
+bindsym $mod+w move workspace to output left
+bindsym $mod+e move workspace to output right
+bindsym $mod+b workspace back_and_forth
 
 # start chromium
 bindsym $mod+i exec chromium
