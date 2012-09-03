@@ -129,6 +129,8 @@ else
     export EDITOR="/usr/bin/gvim -f"
 fi
 
+export TERMINAL=evilvte
+
 # use XDG-based vim config
 export VIMINIT="let \$MYVIMRC=\"${XDG_CONFIG_HOME-~/.config}/vim/config.vim\" | source \$MYVIMRC"
 
