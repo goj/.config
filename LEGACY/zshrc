@@ -33,6 +33,7 @@ fi
 
 if [[ `which pstree` != 'pstree not found' ]]; then
     if [[ `pstree -s $$ | grep -c evilvte` -gt 0 ]]; then
+        gvim() { vim -gf $* &! } # urgency bell hack
         function urgency-bell()  {echo  -en "\a"}
         autoload -U add-zsh-hook
         add-zsh-hook precmd urgency-bell
@@ -126,7 +127,7 @@ if [[ $DISPLAY == '' ]]; then
     alias gvim=vim
 else
     alias xclipboard='xclip -selection clipboard'
-    export EDITOR="/usr/bin/gvim -f"
+    export EDITOR="vim -gf"
 fi
 
 export TERMINAL=evilvte
