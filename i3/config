@@ -24,7 +24,7 @@ bindsym $mod+Return exec evilvte
 bindsym $mod+Shift+C kill
 
 # start dmenu (a program launcher)
-bindsym $mod+p exec dmenu_run
+bindsym $mod+p exec SHELL=zsh dmenu_run
 
 # start sel-do
 bindsym $mod+Shift+P exec sel-do

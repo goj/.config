@@ -34,6 +34,7 @@ fi
 if [[ `which pstree` != 'pstree not found' ]]; then
     if [[ `pstree -s $$ | grep -c evilvte` -gt 0 ]]; then
         gvim() { vim -gf $* &! } # urgency bell hack
+        gview() { vim -gfR $* &! } # urgency bell hack
         function urgency-bell()  {echo  -en "\a"}
         autoload -U add-zsh-hook
         add-zsh-hook precmd urgency-bell
